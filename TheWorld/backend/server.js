@@ -1,6 +1,6 @@
 import express from "express";
 import data from "./data.js";
-
+//commit history
 const app = express();
 //test
 app.get("/api/products", (req, res) => {
@@ -8,12 +8,11 @@ app.get("/api/products", (req, res) => {
 });
 
 app.get("/api/products/slug/:slug", (req, res) => {
-  const product = data.products.find(x => x.slug === req.params.slug)
-  if(product) {
+  const product = data.products.find((x) => x.slug === req.params.slug);
+  if (product) {
     res.send(product);
-  }
-  else {
-    res.status(404).send({message:'product not found'})
+  } else {
+    res.status(404).send({ message: "product not found" });
   }
 });
 
